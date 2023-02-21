@@ -22,7 +22,15 @@
         </p>
       </div>
       <div class="card-footer text-muted"></div>
+      <h3>Edit</h3>
+      <form method= "POST" action="/urls/<%= id %>">
+        <label for="change" >New URL:</label>
+        <input type="text" value="http://" id="change" name="updatedURL" required>
+     
+        <button type="submit">Submit</button>
+      </form>
     </div>
+
     <!-- Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

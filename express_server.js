@@ -49,6 +49,16 @@ app.post('/urls/:id/delete', (req, res) => {
   delete urlDatabase[req.params.id]
   res.redirect("/urls")
 });
+app.post('/urls/:id', (req, res) => {
+  const shortURL = req.params.id;
+  let newURL = req.body.updatedURL;
+  if (!newURL.includes('http')){
+    newURL = `http://${newURL}`
+  }
+  console.log(shortURL)
+  urlDatabase[shortURL] = newURL;
+  res.redirect("/urls")
+});
 
 app.get('/urls/:id', (req, res) => {
   const templateVars = { id: req.params.id, longURL: urlDatabase[req.params.id] };
