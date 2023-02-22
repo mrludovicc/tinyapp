@@ -142,6 +142,15 @@ app.post("/register", (req, res) => {
   console.log(users);
 })
 
+app.get('/login', (req, res) => {
+  const user_id = req.cookies['user_id']
+  const user = users[user_id]
+  const templateVars = {
+    user
+  };
+  res.render("urls_login", templateVars);
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });

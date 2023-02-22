@@ -14,9 +14,9 @@
       </div>
     </div>
     <% if(!user){ %>
-      <form action="/login" method="POST">
-        <input type="text" name="username" id="username" placeholder="Username">
-        <button class="blue">login</button>
+
+      <button class="blue" style="margin-right: 1.2em;"><a href="/login">Login</a></button>
+      <button class="blue"><a href="/register">Register</a></button>
       </form>
       <% } else {%>
         <p>
