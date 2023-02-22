@@ -1,5 +1,9 @@
 const express = require("express");
+const cookieParser = require('cookie-parser')
+
 const app = express();
+app.use(cookieParser())
+
 const PORT = 8080; // default port 8080
 
 app.set("view engine", "ejs");
@@ -59,7 +63,12 @@ app.post('/urls/:id', (req, res) => {
   urlDatabase[shortURL] = newURL;
   res.redirect("/urls")
 });
-
+app.post('/login', (req, res) => {
+  const value = req.body.username;
+  //console.log(value)
+  res.cookie('username', value)
+  res.redirect('/urls')
+})
 app.get('/urls/:id', (req, res) => {
   const templateVars = { id: req.params.id, longURL: urlDatabase[req.params.id] };
   res.render("urls_show", templateVars);
