@@ -12,6 +12,14 @@
   </head>
 
   <body>
+    <style>
+      .blue {
+        color: aliceblue;
+        border-color: blue;
+        background-color: blue;
+        border-radius: 5px; 
+      }
+    </style>
     <%- include('./partials/_header') %>
     <div class="card text-center">
       <div class="card-header"></div>
@@ -25,9 +33,9 @@
       <h3>Edit</h3>
       <form method= "POST" action="/urls/<%= id %>">
         <label for="change" >New URL:</label>
-        <input type="text" value="http://" id="change" name="updatedURL" required>
+        <input type="text"  id="change" name="updatedURL" required>
      
-        <button type="submit">Submit</button>
+        <button type="submit" class="blue">Submit</button>
       </form>
     </div>
 

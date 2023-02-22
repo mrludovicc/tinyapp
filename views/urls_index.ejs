@@ -17,6 +17,34 @@
     <title>TinyApp</title>
   </head>
   <body>
+    <style>
+      .red {
+        color: aliceblue;
+        border-color: red;
+        background-color: red;
+        border-radius: 5px; 
+        padding: 5px;
+
+      }
+      .blue{
+        color: aliceblue;
+        border-color: blue;
+        background-color: blue;
+        border-radius: 5px;
+        padding: 5px;
+        
+      }
+      .blue:hover{
+        color: blue;
+        background-color: aliceblue;
+        border-color: blue;
+      }
+      .red:hover{
+        color: red;
+        background-color: aliceblue;
+        border-color: red;
+      }
+    </style>
     <%- include('./partials/_header') %>
     <main style="margin: 1em;">
       <h3>My URLs</h3>
@@ -36,11 +64,11 @@
               <td><%= urls[id] %></td>
               <td>
                 <form method="get" action="/urls/<%= id %>">
-                  <button>Edit</button>
+                  <button class="blue">Edit</button>
                   </form>
                   <td>
                 <form method="post" action="/urls/<%= id %>/delete">
-                  <button type="submit">Delete</button>
+                  <button type="submit" class="red">Delete</button>
                 </form>
               </td>
               </td>
