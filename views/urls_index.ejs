@@ -10,6 +10,33 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
   <title>TinyApp</title>
 </head>
+<style>
+  .red {
+    color: aliceblue;
+    border-color: red;
+    background-color: red;
+    border-radius: 5px;
+  }
+
+  .blue {
+    color: aliceblue;
+    border-color: blue;
+    background-color: blue;
+    border-radius: 5px;
+  }
+
+  .blue:hover {
+    color: blue;
+    background-color: aliceblue;
+    border-color: blue;
+  }
+
+  .red:hover {
+    color: red;
+    background-color: aliceblue;
+    border-color: red;
+  }
+</style>
 
 <body>
   <%- include('./partials/_header') %>
@@ -35,11 +62,11 @@
               </td>
               <td>
                 <form method="get" action="/urls/<%= id %>">
-                  <button>Edit</button>
+                  <button class="blue">Edit</button>
                 </form>
               <td>
                 <form method="post" action="/urls/<%= id %>/delete">
-                  <button type="submit">Delete</button>
+                  <button type="submit" class="red">Delete</button>
                 </form>
               </td>
               </td>
