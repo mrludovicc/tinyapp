@@ -13,6 +13,9 @@ const generateRandomString = () => {
   let random = Math.random().toString(36).slice(2);
   return random.slice(0, 6);
 };
+// for(let value of users){
+//   value.email ===
+// }
 generateRandomString();
 const users = {
   userRandomID: {
@@ -26,6 +29,7 @@ const users = {
     password: "dishwasher-funk",
   },
 };
+
 const urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
   "9sm5xK": "http://www.google.com"
@@ -89,7 +93,7 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/logout', (req, res) => {
-  res.clearCookie(users);
+  res.clearCookie('user_id');
   res.redirect('/urls');
 });
 
@@ -115,6 +119,18 @@ app.get('/register', (req, res) => {
 })
 
 app.post("/register", (req, res) => {
+  if (req.body.email === '' || req.body.password === '') {
+    return res.status(400).send("Please enter valid a information")
+  }
+  const checkEmail = () => {
+    for (let value in users) {
+      console.log(users[value].email)
+      if (users[value].email === req.body.email) {
+        return res.status(400).send("email is exist, please try different email")
+      }
+    }
+  }
+  checkEmail();
   const userId = generateRandomString();
   users[userId] = {
     id: userId,
