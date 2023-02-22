@@ -1,6 +1,17 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-success">
+    <style>
+      .clicks {
+        margin-right: 5px;
+        background-color: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+      }
 
+      .clicks:hover {
+        color: aliceblue;
+      }
+    </style>
     <a class="navbar-brand" href="/urls">TinyApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,13 +21,14 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="/urls">My URLs</a>
         <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
-        <a class="nav-item nav-link" href="/register">Register</a>
       </div>
     </div>
     <% if(!user){ %>
-
-      <button class="blue" style="margin-right: 1.2em;"><a href="/login">Login</a></button>
-      <button class="blue"><a href="/register">Register</a></button>
+      <form action="/login" method="get">
+        <button class="clicks">Login</button>
+      </form>
+      <form action="/register" method="GET">
+        <button class="clicks">Register</button>
       </form>
       <% } else {%>
         <p>

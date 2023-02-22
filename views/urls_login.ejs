@@ -14,6 +14,33 @@
 
 
 <body>
+  <style>
+    .red {
+      color: aliceblue;
+      border-color: red;
+      background-color: red;
+      border-radius: 5px;
+    }
+
+    .blue {
+      color: aliceblue;
+      border-color: blue;
+      background-color: blue;
+      border-radius: 5px;
+    }
+
+    .blue:hover {
+      color: blue;
+      background-color: aliceblue;
+      border-color: blue;
+    }
+
+    .red:hover {
+      color: red;
+      background-color: aliceblue;
+      border-color: red;
+    }
+  </style>
   <%- include('./partials/_header') %>
     <div class="card text-center">
       <div class="card-header"></div>
@@ -30,7 +57,7 @@
             <label for="password">password:</label>
             <input type="password" id="password" name="password">
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" class="blue">Login</button>
         </form>
       </div>
       <div class="card-footer text-muted"></div>

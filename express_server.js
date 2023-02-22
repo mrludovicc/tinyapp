@@ -52,7 +52,12 @@ app.get('/urls', (req, res) => {
 });
 
 app.get("/urls/new", (req, res) => {
-  res.render("urls_new");
+  const user_id = req.cookies['user_id']
+  const user = users[user_id]
+  const templateVars = {
+    user
+  }
+  res.render("urls_new", templateVars);
   // console.log(urlDatabase[req.params.id])
 });
 app.post("/urls", (req, res) => {
@@ -87,14 +92,18 @@ app.post('/login', (req, res) => {
   // const value = users;
   const { email, password } = req.body
   //console.log(value)
-  res.cookie('user_id', email);
-  res.redirect('/urls');
+  const user = checkEmail(email);
+  if (user && user.password === password) {
+    res.cookie('user_id', user.id);
+    return res.redirect('/urls');
+  }
+  return res.status(400).send('wrong credentials')
 
 });
 
 app.post('/logout', (req, res) => {
   res.clearCookie('user_id');
-  res.redirect('/urls');
+  res.redirect('/login');
 });
 
 app.get('/urls/:id', (req, res) => {
@@ -122,15 +131,10 @@ app.post("/register", (req, res) => {
   if (req.body.email === '' || req.body.password === '') {
     return res.status(400).send("Please enter valid a information")
   }
-  const checkEmail = () => {
-    for (let value in users) {
-      console.log(users[value].email)
-      if (users[value].email === req.body.email) {
-        return res.status(400).send("email is exist, please try different email")
-      }
-    }
+  const user = checkEmail(req.body.email)
+  if (user) {
+    return res.status(400).send("email exists")
   }
-  checkEmail();
   const userId = generateRandomString();
   users[userId] = {
     id: userId,
@@ -139,7 +143,7 @@ app.post("/register", (req, res) => {
   }
   res.cookie('user_id', userId)
   res.redirect('/urls')
-  console.log(users);
+  // console.log(users);
 })
 
 app.get('/login', (req, res) => {
@@ -150,6 +154,14 @@ app.get('/login', (req, res) => {
   };
   res.render("urls_login", templateVars);
 })
+
+const checkEmail = (email) => {
+  for (let value in users) {
+    if (users[value].email === email) {
+      return users[value]
+    }
+  } return null
+}
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
