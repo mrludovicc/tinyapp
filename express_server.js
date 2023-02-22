@@ -61,7 +61,7 @@ app.post('/urls/:id', (req, res) => {
   if (!newURL.includes('http')) {
     newURL = `http://${newURL}`;
   }
-  console.log(shortURL);
+  // console.log(shortURL);
   urlDatabase[shortURL] = newURL;
   res.redirect("/urls");
 });
