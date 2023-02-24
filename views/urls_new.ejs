@@ -13,7 +13,44 @@
 </head>
 
 <body>
+  <style>
+    .red {
+      color: aliceblue;
+      border-color: red;
+      background-color: red;
+      border-radius: 5px;
+    }
 
+    .blue {
+      color: aliceblue;
+      border-color: blue;
+      background-color: blue;
+      border-radius: 5px;
+    }
+
+    .blue:hover {
+      color: blue;
+      background-color: aliceblue;
+      border-color: blue;
+    }
+
+    .red:hover {
+      color: red;
+      background-color: aliceblue;
+      border-color: red;
+    }
+
+    .clicks {
+      margin-right: 5px;
+      background-color: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .clicks:hover {
+      color: aliceblue;
+    }
+  </style>
   <%- include('partials/_header') %>
     <main style="margin: 1em;">
       <h3>Create TinyURL</h3>

@@ -7,21 +7,51 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
   <title>URL - TinyApp Example</title>
 </head>
-<style>
-  .blue {
-    color: aliceblue;
-    border-color: blue;
-    background-color: blue;
-    border-radius: 5px;
-  }
-</style>
 
 <body>
+  <style>
+    .clicks {
+      margin-right: 5px;
+      background-color: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .clicks:hover {
+      color: aliceblue;
+    }
+
+    .red {
+      color: aliceblue;
+      border-color: red;
+      background-color: red;
+      border-radius: 5px;
+    }
+
+    .blue {
+      color: aliceblue;
+      border-color: blue;
+      background-color: blue;
+      border-radius: 5px;
+    }
+
+    .blue:hover {
+      color: blue;
+      background-color: aliceblue;
+      border-color: blue;
+    }
+
+    .red:hover {
+      color: red;
+      background-color: aliceblue;
+      border-color: red;
+    }
+  </style>
   <%- include('./partials/_header') %>
     <div class="card text-center">
       <div class="card-header"></div>
       <div class="card-body">
-        <h5 class="card-title">TinyURL for: <%= longURL %>
+        <h5 class="card-title">TinyURL for: <%= userInfo.longURL %>
         </h5>
         <p class="card-text">
           Short URL ID: <a href="/u/<%= id %>">
