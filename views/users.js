@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const users = {
   userRandomID: {
     id: "userRandomID",
@@ -11,6 +12,6 @@ const users = {
   },
 };
 
-for (let user in users) {
-
-}
+const password = 'purple-monkey-dinosaur'
+const hashedPassword = bcrypt.hashSync(password, 10)
+console.log(hashedPassword)
