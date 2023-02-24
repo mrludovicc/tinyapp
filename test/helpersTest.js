@@ -15,16 +15,16 @@ const testUsers = {
   }
 };
 
-describe('checkEmail', function () {
-  it('should return a user with valid email', function () {
-    const user = checkEmail("user@example.com", testUsers)
+describe('checkEmail', function() {
+  it('should return a user with valid email', function() {
+    const user = checkEmail("user@example.com", testUsers);
     const expectedUserID = "userRandomID";
-    assert.equal(user.id, expectedUserID)
+    assert.equal(user.id, expectedUserID);
   });
 
-  it('should return undefined when providing a email not exist', function () {
-    const user = checkEmail("test@test.LHL.com", testUsers)
+  it('should return undefined when providing a email not exist', function() {
+    const user = checkEmail("test@test.LHL.com", testUsers);
     const expectedUserID = undefined;
-    assert.equal(user, expectedUserID)
+    assert.equal(user, expectedUserID);
   });
 });
