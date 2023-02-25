@@ -61,7 +61,7 @@
       </div>
       <div class="card-footer text-muted"></div>
       <h3>Edit</h3>
-      <form method="POST" action="/urls/<%= id %>">
+      <form method="POST" action="/urls/<%= id %>?_method=PUT">
         <label for="change">New URL:</label>
         <input type="text" id="change" name="updatedURL" required>
 

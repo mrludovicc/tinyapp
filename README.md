@@ -9,10 +9,10 @@ TinyApp is a full stack web application built with Node and Express that allows 
 !["Screenshot of login page"](https://github.com/mrludovicc/tinyapp/blob/master/docs/login_page.png?raw=true)
 
 ## Dependencies
-
 - Node.js
 - Express
 - EJS
+- method-override
 - bcryptjs
 - cookie-session
 
