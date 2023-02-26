@@ -106,7 +106,7 @@ app.get("/u/:id", (req, res) => {
 app.get('/register', (req, res) => {
   const user_id = req.session.user_id;
   const user = users[user_id];
-  
+
   if (user_id) {
     return res.redirect('/urls');
   }
@@ -205,13 +205,13 @@ app.put('/urls/:id', (req, res) => {
   const user_id = req.session.user_id;
   const shortURL = req.params.id;
   if (user_id && user_id === urlDatabase[shortURL].userID) {
-    let newURL = req.body.updatedURL;
+    const newURL = req.body.updatedURL;
     if (!newURL.includes('http')) {
       newURL = `http://${newURL}`;
     }
-    urlDatabase[shortURL] = { 
-      longURL: newURL, 
-      userID: user_id 
+    urlDatabase[shortURL] = {
+      longURL: newURL,
+      userID: user_id
     };
     return res.redirect("/urls");
   }
